@@ -11,13 +11,6 @@ out/
 dist/
 build/
 
-# Environment variables
-.env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-
 # Testing
 coverage/
 .nyc_output/
@@ -31,7 +24,6 @@ coverage/
 # Model files (keep these tracked)
 backend/ml/model_files/
 
-
 # Python
 __pycache__/
 *.py[cod]
@@ -39,6 +31,22 @@ __pycache__/
 venv/
 env/
 
-# Secrets
+# Environment variables and secrets
+.env
 .env.*
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env.production
+*.pem
+*.key
+*.crt
+*serviceAccountKey*.json
+*service-account*.json
+firebase-credentials*.json
+
+# Allow explicit example environment templates
 !.env.example
+!frontend/.env.example
+!backend/.env.example

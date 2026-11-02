@@ -12,13 +12,13 @@ import { getAuth, signInWithEmailAndPassword } from "firebase/auth"
 //   value here causes Storage operations (upload/getDownloadURL) to hang and
 //   eventually fail with `storage/retry-limit-exceeded`.
 const firebaseConfig = {
-  apiKey: "AIzaSyDAeaXEwDT66UjCe1dqRrHu4cwWoL7vfF4",
-  authDomain: "oceanberg-digitaltwin.firebaseapp.com",
-  projectId: "oceanberg-digitaltwin",
-  storageBucket: "oceanberg-digitaltwin.appspot.com",
-  messagingSenderId: "403206405780",
-  appId: "1:403206405780:web:6a5581e174f7b084363e81",
-  measurementId: "G-5J2SXQ0229",
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY || "AIzaSyDAeaXEwDT66UjCe1dqRrHu4cwWoL7vfF4",
+  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN || "oceanberg-digitaltwin.firebaseapp.com",
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID || "oceanberg-digitaltwin",
+  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET || "oceanberg-digitaltwin.appspot.com",
+  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID || "403206405780",
+  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID || "1:403206405780:web:6a5581e174f7b084363e81",
+  measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID || "G-5J2SXQ0229",
   databaseURL:
     process.env.NEXT_PUBLIC_FIREBASE_DATABASE_URL ??
     "https://oceanberg-digitaltwin-default-rtdb.asia-southeast1.firebasedatabase.app",
@@ -53,9 +53,9 @@ export function getFirestoreDB() {
 export const db = getFirestoreDB()
 
 // Firebase Authentication credentials
-const FIREBASE_USER_EMAIL = process.env.FIREBASE_USER_EMAIL || "nithisht.bt22@bitsathy.ac.in"
-const FIREBASE_USER_PASSWORD = process.env.FIREBASE_USER_PASSWORD || "nithish871"
-const FIREBASE_UID = process.env.FIREBASE_UID || "gWozEL81rIMg3YgQ7Yqldbhf2933"
+const FIREBASE_USER_EMAIL = process.env.FIREBASE_USER_EMAIL || ""
+const FIREBASE_USER_PASSWORD = process.env.FIREBASE_USER_PASSWORD || ""
+const FIREBASE_UID = process.env.FIREBASE_UID || ""
 
 // Sign in to Firebase (server-side only)
 let authInitialized = false
